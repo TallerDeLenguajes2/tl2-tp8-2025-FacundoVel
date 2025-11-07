@@ -23,4 +23,14 @@ public class ProductosController : Controller
         return View();
     }
 
+    [HttpPost]
+    public IActionResult Create(Producto nuevoProducto)
+    {
+        if (ModelState.IsValid)
+        {
+            productoRepository.CrearProducto(nuevoProducto);
+            return RedirectToAction("Index");
+        }
+        return View(nuevoProducto);
+    }
 }
