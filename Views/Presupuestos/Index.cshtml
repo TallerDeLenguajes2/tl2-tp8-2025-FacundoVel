@@ -1,0 +1,29 @@
+@model List<Presupuesto>
+
+@{
+    ViewData["Title"] = "Listado de Presupuestos";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Destinatario</th>
+            <th>Fecha de Creación</th>
+            <th>Total (sin IVA)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.IdPresupuesto</td>
+                <td>@p.NombreDestinatario</td>
+                <td>@p.FechaCreacion.ToShortDateString()</td>
+                <td>$@p.MontoPresupuesto()</td>
+            </tr>
+        }
+    </tbody>
+</table>
