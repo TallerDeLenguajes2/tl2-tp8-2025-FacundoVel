@@ -4,26 +4,47 @@
     ViewData["Title"] = "Listado de Presupuestos";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">@ViewData["Title"]</h2>
 
-<table class="table table-striped">
-    <thead class="table-dark">
-        <tr>
-            <th>ID</th>
-            <th>Destinatario</th>
-            <th>Fecha de Creación</th>
-            <th>Total (sin IVA)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
-            <tr>
-                <td>@p.IdPresupuesto</td>
-                <td>@p.NombreDestinatario</td>
-                <td>@p.FechaCreacion.ToShortDateString()</td>
-                <td>$@p.MontoPresupuesto()</td>
-            </tr>
-        }
-    </tbody>
-</table>
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Destinatario</th>
+                    <th>Fecha de Creación</th>
+                    <th>Monto (sin IVA)</th>
+                    <th>Monto (con IVA)</th>
+                    <th>Cantidad de Productos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var presupuesto in Model)
+                {
+                    <tr>
+                        <td>@presupuesto.IdPresupuesto</td>
+                        <td>@presupuesto.NombreDestinatario</td>
+                        <td>@presupuesto.FechaCreacion.ToShortDateString()</td>
+                        <td>$@presupuesto.MontoPresupuesto()</td>
+                        <td>@presupuesto.CantidadProductos()</td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@presupuesto.IdPresupuesto" 
+                               class="btn btn-sm btn-primary">Ver Detalle</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-muted text-center mt-4">No hay presupuestos registrados.</p>
+    }
+
+    <div class="mt-3 text-center">
+        <a asp-action="Create" class="btn btn-success">Nuevo Presupuesto</a>
+    </div>
+</div>

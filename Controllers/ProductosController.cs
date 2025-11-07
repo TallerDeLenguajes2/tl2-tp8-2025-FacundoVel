@@ -16,4 +16,11 @@ public class ProductosController : Controller
         List<Producto> productos = productoRepository.ListarProductos();
         return View(productos);
     }
+
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
 }
