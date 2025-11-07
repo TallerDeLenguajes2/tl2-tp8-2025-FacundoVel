@@ -33,4 +33,15 @@ public class ProductosController : Controller
         }
         return View(nuevoProducto);
     }
+
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        Producto producto = productoRepository.ObtenerPorId(id);
+        if (producto == null)
+        {
+            return NotFound();
+        }
+        return View(producto);
+    }
 }
