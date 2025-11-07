@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tl2-tp8-2025-FacundoVel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97ae667e4178cf3cde86927cee2c92121cbb9114")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68eaa4474eb1fc9bce4036f3fd7e462329ed4bb0")]
 [assembly: System.Reflection.AssemblyProductAttribute("tl2-tp8-2025-FacundoVel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tl2-tp8-2025-FacundoVel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

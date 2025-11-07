@@ -1,0 +1,24 @@
+@model Producto
+
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <p>¿Seguro que desea eliminar este producto?</p>
+
+    <dl class="row">
+        <dt class="col-sm-3">Descripción</dt>
+        <dd class="col-sm-9">@Model.Descripcion</dd>
+
+        <dt class="col-sm-3">Precio</dt>
+        <dd class="col-sm-9">$@Model.Precio</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="IdProducto" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
