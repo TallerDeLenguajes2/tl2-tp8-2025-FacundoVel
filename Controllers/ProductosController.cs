@@ -34,6 +34,7 @@ public class ProductosController : Controller
         return View(nuevoProducto);
     }
 
+    //mostrar formulario con datos de producto
     [HttpGet]
     public IActionResult Edit(int id)
     {
@@ -43,5 +44,17 @@ public class ProductosController : Controller
             return NotFound();
         }
         return View(producto);
+    }
+
+    //guardar cambios en db
+    [HttpPost]
+    public IActionResult Edit(int id, Producto productoActualizado)
+    {
+        if (ModelState.IsValid)
+        {
+            productoRepository.ModificarProducto(id, productoActualizado);
+            return RedirectToAction("Index");
+        }
+        return View(productoActualizado);
     }
 }
